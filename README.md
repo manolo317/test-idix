@@ -11,8 +11,8 @@ Pour installer le projet en local:
 Routes:
 - "/films": liste des films
 - "/films/{id}": détails film
-- "admin/film": espace administration des films
-- "admin/character": espace administration des films
+- "/admin/film": espace administration des films
+- "/admin/character": espace administration des films
 
 Pour importer les films et les personnage de Swapi:
 - $ (master) php app/console doctrine:fixtures:load
