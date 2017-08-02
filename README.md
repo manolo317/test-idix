@@ -2,7 +2,7 @@
 Pour installer le projet en local: 
 - git clone https://github.com/manolo317/test-idix.git
 - $ (master) git pull (je récupère la dernière version de master)
-- $ (master) php bin/console server:run (je démarre le serveur)
+- $ (master) php app/console server:run (je démarre le serveur)
 - $ (master) composer update (je met à jour les dépendances)
 - je met à jour les paramètres de mon fichier parameters.yml
 - $ (master) php app/console doctrine:database:create (création base de données)
