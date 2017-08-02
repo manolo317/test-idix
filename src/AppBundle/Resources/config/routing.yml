@@ -1,0 +1,19 @@
+idix_films_home:
+    path:      /films
+    defaults:
+        _controller: AppBundle:Default:index
+
+idix_films_view:
+    path:      /films/{filmId}
+    defaults:
+        _controller: AppBundle:Default:view
+    requirements:
+        filmId: \d+
+
+admin_film:
+    resource: '@AppBundle/Resources/config/routing/film.yml'
+    prefix: /admin/film
+
+admin_character:
+    resource: '@AppBundle/Resources/config/routing/character.yml'
+    prefix: /admin/character

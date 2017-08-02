@@ -1,0 +1,39 @@
+{% extends 'AppBundle:Layout:layout.html.twig' %}
+
+{% block main %}
+    <h1>{{ film.title }}</h1>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed">
+            <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ film.title }}</td>
+            </tr>
+            <tr>
+                <th>Abstract</th>
+                <td>{{ film.abstract }}</td>
+            </tr>
+            <tr>
+                {% if not film.characters.empty %}
+                    <th>Characters</th>
+                    <td>
+                        {% for character in film.characters %}
+                            {{ character.name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Created at</th>
+                <td>{{ film.date|date('Y-m-d') }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('idix_films_home') }}">Back to menu</a>
+        </li>
+    </ul>
+{% endblock %}

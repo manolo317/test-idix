@@ -1,0 +1,39 @@
+{% extends 'AppBundle:Admin:base_admin.html.twig' %}
+
+{% block body %}
+    <h1>Characters list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for character in characters %}
+            <tr>
+                <td><a href="{{ path('character_show', { 'id': character.id }) }}">{{ character.id }}</a></td>
+                <td>{{ character.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('character_show', { 'id': character.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('character_edit', { 'id': character.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('character_new') }}">Create a new character</a>
+        </li>
+    </ul>
+{% endblock %}

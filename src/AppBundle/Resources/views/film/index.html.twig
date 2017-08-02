@@ -1,0 +1,43 @@
+{% extends 'AppBundle:Admin:base_admin.html.twig' %}
+
+{% block body %}
+    <h1>Films list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Abstract</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for film in films %}
+            <tr>
+                <td><a href="{{ path('film_show', { 'id': film.id }) }}">{{ film.id }}</a></td>
+                <td>{{ film.title }}</td>
+                <td>{{ film.abstract }}</td>
+                <td>{{ film.date|date('Y-m-d') }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('film_show', { 'id': film.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('film_edit', { 'id': film.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('film_new') }}">Create a new film</a>
+        </li>
+    </ul>
+{% endblock %}

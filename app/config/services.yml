@@ -1,0 +1,14 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    idix.api_swapi.class: AppBundle\Services\Swapi
+    idix.data_fixtures.class: AppBundle\DataFixtures\ORM\LoadFilm
+    base_uri: http://swapi.co/api/films
+
+services:
+    app.swapi:
+        class: "%idix.api_swapi.class%"
+        arguments:
+            - '@csa_guzzle.client.swapi'
+            - '@jms_serializer'
+            - '%base_uri%'
